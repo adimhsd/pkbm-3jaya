@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "target": "pkbm-target",
+	"cleanUrls": true,
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

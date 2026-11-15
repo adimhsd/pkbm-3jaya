@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "adimhsd-28"
+  },
+  "targets": {
+    "adimhsd-28": {
+      "hosting": {
+        "pkbm-target": [
+          "pkbm-3jaya"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

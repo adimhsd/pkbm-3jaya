@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKBM TRI JAYA - Kejar Paket A B C Resmi di Kabupaten Kuningan</title>
+	<link rel="icon" type="image/png" href="img/logo-pkbm.png">
+    <meta name="description" content="PKBM Tri Jaya menyediakan pendidikan kesetaraan Paket A, B, dan C resmi di Kabupaten Kuningan. Daftar sekarang untuk ijazah yang diakui negara dan kelanjutan pendidikan Anda.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #10b981 100%); }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "PKBM TRI JAYA",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Raya Desa Mekarjaya No.001 Desa Makarjaya",
+        "addressLocality": "Ciawigebang - Kuningan",
+        "addressRegion": "Jawa Barat",
+        "postalCode": "45591",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-6.9416309102725196",
+        "longitude": "108.57902413206645"
+      },
+      "url": "https://pkbm-3jaya.web.app",
+      "telephone": "+6285220621404"
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center group-hover:bg-emerald-600 transition-colors">
+                        <span class="text-white font-bold text-xl">TJ</span>
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight text-blue-900 uppercase">PKBM Tri Jaya</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-6 font-semibold text-gray-600">
+                    <a href="/" class="hover:text-blue-600 transition border-b-2 border-blue-600 pb-1">Beranda</a>
+                    <a href="/program" class="hover:text-blue-600 transition">Program</a>
+                    <a href="/kurikulum" class="hover:text-blue-600 transition">Kurikulum</a>
+					<a href="/perpustakaan" class="hover:text-blue-600 transition">Perpustakaan</a>
+                    <a href="/belajar-online" class="hover:text-blue-600 transition flex items-center">
+                        Kelas Online
+                        <span class="ml-1 flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                    </a>
+
+                    <a href="/tentang-kami" class="hover:text-blue-600 transition text-sm lg:text-base">Tentang Kami</a>
+                    <a href="/pendaftaran" class="bg-emerald-500 text-white px-5 py-2.5 rounded-full hover:bg-emerald-600 transition shadow-md text-sm">
+                        Daftar
+                    </a>
+                </div>
+
+                <button id="menu-btn" class="md:hidden p-2 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900 rounded-lg">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-6 space-y-4 shadow-xl">
+            <a href="/" class="block font-medium text-blue-600">Beranda</a>
+            <a href="/program" class="block font-medium text-gray-700 hover:text-blue-600">Program</a>
+            <a href="/kurikulum" class="block font-medium text-gray-700 hover:text-blue-600">Kurikulum</a>
+			<a href="/perpustakaan" class="block font-medium text-gray-700 hover:text-blue-600">Perpustakaan</a>
+            <a href="/belajar-online" class="block font-bold text-indigo-600">✨ Kelas Online (PJJ)</a>
+            <a href="/tentang-kami" class="block font-medium text-gray-700 hover:text-blue-600">Tentang Kami</a>
+            <a href="/kontak" class="block font-medium text-gray-700 hover:text-blue-600">Kontak</a>
+            <hr class="border-gray-100">
+            <a href="/pendaftaran" class="block bg-emerald-500 text-white text-center py-3 rounded-xl font-bold">
+                Daftar Sekarang
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient text-white">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                    Pendidikan Untuk Semua, <br><span class="text-emerald-300">Tanpa Batas Usia.</span>
+                </h1>
+                <p class="text-lg md:text-xl opacity-90 mb-8 max-w-lg">
+                    Dapatkan Ijazah resmi negara melalui program Paket A, B, dan C. PKBM Tri Jaya hadir membantu Anda meraih masa depan yang lebih cerah di Kabupaten Kuningan.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/program" class="bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-center hover:bg-gray-100 transition shadow-lg">Lihat Program</a>
+                    <a href="/pendaftaran" class="border-2 border-white/50 hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-center transition">Alur Pendaftaran</a>
+                </div>
+            </div>
+			<div class="md:w-1/2 flex justify-end">
+				<div class="relative w-full max-w-2xl h-[400px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10">
+					
+					<div id="slider-track" class="flex h-full transition-transform duration-500 ease-in-out">
+						<img src="img/suasana-belajar.png" class="w-full h-full object-cover flex-shrink-0" alt="Suasana Belajar 1">
+						<img src="img/suasana-belajar2.png" class="w-full h-full object-cover flex-shrink-0" alt="Suasana Belajar 2">
+						<img src="img/suasana-belajar3.png" class="w-full h-full object-cover flex-shrink-0" alt="Suasana Belajar 3">
+						<img src="img/suasana-belajar1.png" class="w-full h-full object-cover flex-shrink-0" alt="Suasana Belajar 3">
+					</div>
+
+					<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+						<div class="w-2 h-2 bg-white rounded-full opacity-50"></div>
+						<div class="w-2 h-2 bg-white rounded-full opacity-50"></div>
+						<div class="w-2 h-2 bg-white rounded-full opacity-50"></div>
+						<div class="w-2 h-2 bg-white rounded-full opacity-50"></div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">Mengapa Memilih Kami?</h2>
+                <div class="h-1.5 w-24 bg-emerald-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-blue-600 hover:shadow-xl transition-all duration-300 group text-center md:text-left">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto md:mx-0 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04kM12 21.48l-.392-.015a11.955 11.955 0 01-8.618-3.04A11.955 11.955 0 0112 2.944"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 uppercase">Ijazah Resmi</h3>
+                    <p class="text-gray-600">Lulusan kami mendapatkan ijazah negara yang setara dengan pendidikan formal untuk kuliah atau kerja.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-emerald-500 hover:shadow-xl transition-all duration-300 group text-center md:text-left">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-6 mx-auto md:mx-0 group-hover:bg-emerald-500 group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 uppercase">Waktu Fleksibel</h3>
+                    <p class="text-gray-600">Sistem belajar yang disesuaikan untuk warga belajar yang sudah bekerja atau memiliki kesibukan lain.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-orange-400 hover:shadow-xl transition-all duration-300 group text-center md:text-left">
+                    <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-lg flex items-center justify-center mb-6 mx-auto md:mx-0 group-hover:bg-orange-400 group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 uppercase">Fasilitas Lengkap</h3>
+                    <p class="text-gray-600">Tersedia lab komputer, perpustakaan, dan tutor berpengalaman yang siap membimbing hingga lulus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-indigo-50 border-y border-indigo-100">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 bg-indigo-600 p-12 flex justify-center items-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">📱</div>
+                        <div class="text-white font-bold text-xl uppercase tracking-widest">Digital Class</div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 p-8 md:p-12">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-4">
+                        Bisa Belajar Dari Mana Saja!
+                    </h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Kesibukan kerja bukan lagi penghalang. PKBM Tri Jaya menyediakan fasilitas **Kelas Online via Google Classroom**. Akses materi pelajaran, diskusi dengan tutor, dan kumpulkan tugas cukup dari smartphone Anda.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/belajar-online" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg flex items-center">
+                            Masuk Ruang Belajar
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        </a>
+                        <div class="flex items-center text-indigo-600 font-semibold px-4">
+                            <span class="flex h-3 w-3 mr-2 relative">
+                                <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-indigo-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                            </span>
+                            Sistem PJJ Aktif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-950 text-white/80 py-12 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-white font-bold text-2xl mb-4 uppercase tracking-wider">PKBM TRI JAYA</h2>
+            <p class="mb-6 max-w-md mx-auto italic text-sm">"Pendidikan adalah senjata paling ampuh untuk mengubah dunia."</p>
+            <div class="flex flex-wrap justify-center gap-6 mb-8 text-xs font-semibold tracking-widest uppercase">
+                <a href="/program" class="hover:text-emerald-400 transition">Program</a>
+                <a href="/kurikulum" class="hover:text-emerald-400 transition">Kurikulum</a>
+                <a href="/pendaftaran" class="hover:text-emerald-400 transition">Daftar</a>
+                <a href="/kontak" class="hover:text-emerald-400 transition">Kontak</a>
+            </div>
+            <div class="text-[11px] opacity-40 border-t border-white/5 pt-8">
+                &copy; 2026 PKBM Tri Jaya Kabupaten Kuningan. All Rights Reserved. <br>
+                Terakreditasi BAN-PDM & Terdaftar di Dapodik.
+                <p class="mt-4">
+                    Developed by <a href="https://adi-muhamad.my.id" target="_blank" class="underline hover:text-emerald-400 transition-colors">adi-muhamad.my.id</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

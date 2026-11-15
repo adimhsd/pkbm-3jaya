@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Digital - PKBM TRI JAYA (Paket A, B, C)</title>
+	<link rel="icon" type="image/png" href="img/logo-pkbm.png">
+    <meta name="description" content="Pilih program pendidikan kesetaraan Paket A (SD), Paket B (SMP), atau Paket C (SMA) di PKBM Tri Jaya. Kurikulum resmi dan ijazah diakui negara.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #10b981 100%); }
+		/* CSS Tambahan untuk Akordeon */
+		.accordion-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-in-out;
+		}
+		
+		/* Putar Ikon Panah saat Aktif */
+		.accordion-active svg {
+			transform: rotate(180deg);
+		}
+	</style>
+</head>
+<body class="bg-slate-50 text-gray-900">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center group-hover:bg-emerald-600 transition-colors">
+                        <span class="text-white font-bold text-xl">TJ</span>
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight text-blue-900 uppercase">PKBM Tri Jaya</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-6 font-semibold text-gray-600">
+                    <a href="/" class="hover:text-blue-600 transition border-b-2 border-blue-600 pb-1">Beranda</a>
+                    <a href="/program" class="hover:text-blue-600 transition">Program</a>
+                    <a href="/kurikulum" class="hover:text-blue-600 transition">Kurikulum</a>
+					<a href="/perpustakaan" class="hover:text-blue-600 transition">Perpustakaan</a>
+                    <a href="/belajar-online" class="hover:text-blue-600 transition flex items-center">
+                        Kelas Online
+                        <span class="ml-1 flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                    </a>
+
+                    <a href="/tentang-kami" class="hover:text-blue-600 transition text-sm lg:text-base">Tentang Kami</a>
+                    <a href="/pendaftaran" class="bg-emerald-500 text-white px-5 py-2.5 rounded-full hover:bg-emerald-600 transition shadow-md text-sm">
+                        Daftar
+                    </a>
+                </div>
+
+                <button id="menu-btn" class="md:hidden p-2 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900 rounded-lg">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-6 space-y-4 shadow-xl">
+            <a href="/" class="block font-medium text-blue-600">Beranda</a>
+            <a href="/program" class="block font-medium text-gray-700 hover:text-blue-600">Program</a>
+            <a href="/kurikulum" class="block font-medium text-gray-700 hover:text-blue-600">Kurikulum</a>
+			<a href="/perpustakaan" class="block font-medium text-gray-700 hover:text-blue-600">Perpustakaan</a>
+            <a href="/belajar-online" class="block font-bold text-indigo-600">✨ Kelas Online (PJJ)</a>
+            <a href="/tentang-kami" class="block font-medium text-gray-700 hover:text-blue-600">Tentang Kami</a>
+            <a href="/kontak" class="block font-medium text-gray-700 hover:text-blue-600">Kontak</a>
+            <hr class="border-gray-100">
+            <a href="/pendaftaran" class="block bg-emerald-500 text-white text-center py-3 rounded-xl font-bold">
+                Daftar Sekarang
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-blue-900 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Perpustakaan Digital</h1>
+            <p class="text-blue-200 max-w-2xl mx-auto opacity-90">Pusat akses buku ajar mandiri untuk seluruh warga belajar PKBM Tri Jaya.</p>
+			<p class="text-blue-200 max-w-2xl mx-auto opacity-90">Sumber Buku: buku.kemendikdasmen.go.id</p>
+        </div>
+		
+    </header>
+
+	<div class="w-full py-8">
+		<div class="container mx-auto px-4">
+			
+			<div class="relative w-full max-w-2xl h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10 mx-auto">
+				
+				<div id="slider-track" class="flex h-full transition-transform duration-500 ease-in-out">
+					<img src="img/buku1.png" class="w-full h-full object-cover flex-shrink-0" alt="Buku 1">
+					<img src="img/buku2.png" class="w-full h-full object-cover flex-shrink-0" alt="Buku 2">
+					<img src="img/buku3.png" class="w-full h-full object-cover flex-shrink-0" alt="Buku 3">
+					<img src="img/buku4.png" class="w-full h-full object-cover flex-shrink-0" alt="Buku 4">
+					<img src="img/buku5.png" class="w-full h-full object-cover flex-shrink-0" alt="Buku 4">
+				</div>
+
+				<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+					<div class="dot w-2 h-2 bg-white rounded-full opacity-50"></div>
+					<div class="dot w-2 h-2 bg-white rounded-full opacity-50"></div>
+					<div class="dot w-2 h-2 bg-white rounded-full opacity-50"></div>
+					<div class="dot w-2 h-2 bg-white rounded-full opacity-50"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                
+                <div class="space-y-6">
+                    <div class="bg-blue-600 p-6 rounded-2xl shadow-lg text-white text-center">
+                        <h2 class="text-xl font-bold uppercase tracking-widest">Paket A (Setara SD)</h2>
+                    </div>
+                    <div class="space-y-3" id="paket-a-list">
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								01. Pend. Agama & Budi Pekerti
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-IV.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam_BS_KLS_VI.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								02. Pendidikan Pancasila
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Pendidikan-Pancasila-BS-KLS-IV.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Pendidikan-Pancasila-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Pendidikan-Pancasila-BS-KLS-VI-Rev.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								03. Bahasa Indonesia
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								04. Matematika
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								05. IPAS
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								06. PJOK
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								07. Seni Budaya
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								08. Bahasa Inggris
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100 mb-2">
+							<button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+								09. Muatan Lokal
+								<svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</button>
+							
+							<div class="accordion-content bg-blue-50/50 border-t border-gray-100">
+								<div class="p-4 space-y-2 text-sm">
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 4</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 5</a>
+									<a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Islam-BS-KLS-V.pdf" class="block text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 6</a>
+								</div>
+							</div>
+						</div>
+
+                        <div class="text-center py-4 text-xs text-gray-400 italic">Sumber Buku: buku.kemendikdasmen.go.id</div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-emerald-600 p-6 rounded-2xl shadow-lg text-white text-center">
+                        <h2 class="text-xl font-bold uppercase tracking-widest">Paket B (Setara SMP)</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                01. Pend. Agama & Budi Pekerti
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                02. Pendidikan Pancasila
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                03. Bahasa Indonesia
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                04. Matematika
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                05. IPA
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                06. IPS
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                  <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                07. Informatika
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                08. PJOK
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                09. Seni dan Budaya
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                10. Bahasa Inggris
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                11. Muatan lokal
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+                            </button>
+                            <div class="accordion-content bg-emerald-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 7</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 8</a>
+                                    <a href="#" class="block text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 9</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center py-4 text-xs text-gray-400 italic">Sumber Buku: buku.kemendikdasmen.go.id</div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-orange-500 p-6 rounded-2xl shadow-lg text-white text-center">
+                        <h2 class="text-xl font-bold uppercase tracking-widest">Paket C (Setara SMA)</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                01. Pend. Agama & Budi Pekerti
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                02. Pendidikan Pancasila
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                03. Bahasa Indonesia
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                04. Matematika
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                05. IPA (Ilmu Pengetahuan Alam)
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                06. IPS (Ilmu Pengetahuan Sosial)
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                07. Sejarah
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                08. Geografi
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                09. Ekonomi
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                10. Sosiologi
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                11. Antropologi
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                12. Informatika
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                13. PJOK
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                14. Seni dan Budaya
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                15. Bahasa Inggris
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
+                            <button class="accordion-header w-full p-4 flex justify-between items-center font-bold text-gray-700 hover:bg-gray-50 transition">
+                                16. Muatan Lokal
+                                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-orange-50/50">
+                                <div class="p-4 space-y-2 text-sm">
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 10</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 11</a>
+                                    <a href="#" class="block text-orange-600 hover:underline" target="_blank" rel="noopener noreferrer">📥 Download Buku Ajar Kelas 12</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center py-4 text-xs text-gray-400 italic">Sumber Buku: buku.kemendikdasmen.go.id</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-950 text-white/80 py-12 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-white font-bold text-2xl mb-4 uppercase tracking-wider">PKBM TRI JAYA</h2>
+            <p class="mb-6 max-w-md mx-auto italic">"Pendidikan adalah senjata paling ampuh untuk mengubah dunia."</p>
+            <div class="flex justify-center space-x-6 mb-8 text-sm font-semibold tracking-widest">
+                <a href="/program" class="hover:text-emerald-400">PROGRAM</a>
+                <a href="/pendaftaran" class="hover:text-emerald-400">DAFTAR</a>
+                <a href="/kontak" class="hover:text-emerald-400">KONTAK</a>
+            </div>
+            <div class="text-xs opacity-50 border-t border-white/5 pt-8">
+                &copy; 2026 PKBM Tri Jaya. All Rights Reserved. <br>
+                Terakreditasi BAN-PDM & Terdaftar di Dapodik.
+				<p class="mt-2">
+					Developed by <a href="https://adi-muhamad.my.id" target="_blank" class="underline hover:text-emerald-400">adi-muhamad.my.id</a>
+				</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
